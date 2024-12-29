@@ -1,0 +1,25 @@
+{
+  "name": "mern-ecommerce-store",
+  "version": "1.0.0",
+  "main": "backend/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon backend/main.js",
+    "start": "node backend/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^2.5.1",
+    "cookie-parse": "^0.4.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "ioredis": "^5.4.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.2",
+    "stripe": "^17.5.0"
+  }
+}
