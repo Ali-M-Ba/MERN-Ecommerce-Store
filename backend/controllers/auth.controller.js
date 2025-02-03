@@ -2,7 +2,7 @@ import User from "../models/User.model.js";
 import RefreshToken from "../models/RefreshToken.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { handleResponse } from "../utils/respose.handler.js";
+import { handleResponse } from "../utils/response.handler.js";
 import { handleError } from "../utils/error.handler.js";
 import { generateTokens, setCookies } from "../utils/token.utils.js";
 
@@ -26,6 +26,7 @@ export const processSignup = async (req, res) => {
 
     handleResponse(res, 201, "User signed up successfully!", {
       userId: savedUser._id,
+      role: savedUser.role,
       accessToken,
       refreshToken,
     });
@@ -69,6 +70,7 @@ export const processLogin = async (req, res) => {
 
     handleResponse(res, 200, "User logged in successfully!", {
       userId: user._id,
+      role: user.role,
       accessToken,
       refreshToken,
     });

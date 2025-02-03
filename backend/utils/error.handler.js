@@ -5,21 +5,13 @@ const handleErrors = (error) => {
   };
 
   if (error) {
-    // Unauthorized
-    if (error.status === 401) {
-      errRes.status = error.status;
-      errRes.message = error.message;
-    }
+    errRes.status = error.status;
+    errRes.message = error.message;
 
     // MongoDB Duplicate Key Errors
     if (error.code === 11000) {
       errRes.status = 400;
       errRes.message = "Duplicate field value entered";
-    }
-
-    if (error.status === 404 && error.message === "Refresh token not found") {
-      errRes.status = error.status;
-      errRes.message = error.message;
     }
   }
 
