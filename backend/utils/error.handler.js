@@ -13,6 +13,14 @@ const handleErrors = (error) => {
       errRes.status = 400;
       errRes.message = "Duplicate field value entered";
     }
+
+    // Mongoose Validation Errors (e.g., missing required fields)
+    if (error.name === "ValidationError") {
+      errRes.status = 400;
+      errRes.message = Object.values(error.errors)
+        .map((err) => err.message)
+        .join(", "); // Collect all validation messages
+    }
   }
 
   return errRes;

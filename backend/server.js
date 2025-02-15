@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import authRouter from "./routes/auth.routes.js";
 import productRouter from "./routes/product.routes.js";
 import cartRouter from "./routes/cart.routes.js";
+import couponRouter from "./routes/coupon.routes.js";
 import cookieParser from "cookie-parser";
 import { seedProducts } from "./seeds/product.seed.js";
 dotenv.config();
@@ -18,6 +19,7 @@ app.use(cookieParser());
 app.use("/auth", authRouter);
 app.use("/products", productRouter);
 app.use("/cart", cartRouter);
+app.use("/coupons", couponRouter);
 
 const startServer = async () => {
   try {
