@@ -26,6 +26,9 @@ const couponSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
+    stripeCouponId: {
+      type: String,
+    }
   },
   {
     timestamps: true,
