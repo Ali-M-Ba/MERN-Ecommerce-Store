@@ -6,6 +6,7 @@ import productRouter from "./routes/product.routes.js";
 import cartRouter from "./routes/cart.routes.js";
 import couponRouter from "./routes/coupon.routes.js";
 import paymentRouter from "./routes/payment.routes.js";
+import analyticsRouter from "./routes/analytics.routes.js";
 import cookieParser from "cookie-parser";
 import { seedProducts } from "./seeds/product.seed.js";
 dotenv.config();
@@ -22,6 +23,7 @@ app.use("/products", productRouter);
 app.use("/cart", cartRouter);
 app.use("/coupons", couponRouter);
 app.use("/payment", paymentRouter);
+app.use("/analytics", analyticsRouter);
 
 const startServer = async () => {
   try {

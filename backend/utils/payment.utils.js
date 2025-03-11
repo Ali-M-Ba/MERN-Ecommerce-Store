@@ -3,8 +3,8 @@ import Coupon from "../models/Coupon.model.js";
 import { stripe } from "../config/stripe.js";
 import { v4 as uuidv4 } from "uuid";
 
-// Retrieve products from the database using the provided product IDs.  
-// Ensure all requested products exist, and append the corresponding quantity  
+// Retrieve products from the database using the provided product IDs.
+// Ensure all requested products exist, and append the corresponding quantity
 // from the user's input before returning the validated product list.
 export const validateProducts = async (productsData) => {
   try {
@@ -125,7 +125,7 @@ export const generateCheckoutSession = async (
       discounts: coupon?.id ? [{ coupon: coupon.id }] : [],
       metadata: {
         userId: userId.toString(),
-        couponCode: coupon.couponCode || "",
+        couponCode: coupon?.couponCode || "",
         productsData: JSON.stringify(
           products.map(({ _id, quantity }) => ({
             _id,
